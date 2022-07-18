@@ -1,0 +1,142 @@
+@import "base";
+@import "typography";
+
+@import "sidebar";
+@import "header";
+@import "realtors";
+@import "features";
+@import "story";
+@import "homes";
+@import "gallery";
+@import "footer";
+@import "grid-exercise";
+
+
+/* 
+CSS GRID
+  - 2 dimensional layout
+  - ROW axis, COLUMN axis
+    - unline in flexbox, their dirrection can't be changed
+  - grid line is counted for rows & columns; num of row/column + 1
+  - gutter - space between rows and columns
+  - track - row or vertical line of columns
+  - grid area
+  - grid cell
+
+
+  CONTAINER
+
+  display: grid | grid-inline; // creates grid container
+  
+  grid-template-rows
+  grid-template-columns
+  grid-template-areas
+  grid-template
+
+  row-gap
+  column-gap
+  gap
+
+  justify-items
+  align-items
+  justify-content
+  align-content
+
+  // items that can't fit in container are placed in implicit rows/columns, by default or based on:
+  grd-auto-rows
+  grd-auto-columns
+  grid-auto-flow: row | columns; add 'dense' keyword to avoid empty places
+
+
+  Aligning grid items:
+    
+    justify-items // align items across ROW axis; equivalent to justify-content in flexbox; alligns content of container
+    align-items // alig items across COLUMN axis; identical as in flexbox; this will align the content of the container
+
+  
+  Allign grid tracks:
+
+    justify-content // indentical to flex-box
+    align-content // identical to flex-box; will allign the container rows
+
+
+  - justify (justify-items, justify-content) always refers to the HORIZONTAL dirrection
+  - align (align-items, align-content) always referes to VERTICAL dirrectaion
+
+
+
+  ITEMS
+
+  grid-row-start
+  grid-row-end
+  grid-row
+
+  grid-colum-start
+  grid-colum-end
+  grid-colum
+
+  grid-areas
+
+
+  Aligning grid items:
+  
+    justify-self
+    align-self
+
+  order
+  - three ways to order (see them in grid-exercise.html / _grid-exercise.scss)
+
+
+
+  - it's possible to have multiple grid items in same cell (if we place them there); use z-index to chose 
+    which is on top; often used to have overlying imgs and create great effects!
+
+
+  Implicit vs Explicit grids
+  - if it's needed a implicit row or column is created for grid items that dont fit into the defined grid;
+    the defined grid is called explicit grid, and this is the implicit grid; el in implicit rows have min height
+    required for content of items
+  - style implicit grid with:
+    grid-auto-rows: 80px; // each added row has height of 80px
+    grid-auto-columns: .5fr;
+    - this is great with AJAX, when we don't know how many items we will get back
+  - grid items that don't fit into our grid are automatically added to next row, because of the next property:
+    grid-auto-flow: row | column;
+
+
+  
+  FR
+  - fractional unit filles up the entire available space, but is never smaller than the content of the item
+  - e.g. 1fr instead of 100%, or 1fr 1fr instead of 50% 50%
+
+
+
+  MIN-CONTENT VS. MAX-CONTENT
+  - properties that can be used in grid, e.g. instead of units like 1fr
+  - e.g. grid-template-columns: max-content 1fr;
+  max-content // wide as content; without line breaks!
+  min-content // wide as content; with line breaks!
+
+
+  MINMAX
+  - in css grid we can use the minmax function, e.g.:
+  grit-template-rows: repeat(2, minmax(150px, max-content)) // rows are wide as content, but with min-width of 150px
+  - wen we want the row (or column) to be at least Xpx/rem/em/%/fr high, but higher if contet would overflow
+  - wen we want the column (or row) to be at least Xpx/rem/em/%/fr width, but wider if contet would overflow
+
+
+  AUTO-FIT & AUTO-FILL
+  - great for responsive layouts
+  - grid-template-column: repeat(auto-fill, 200px); // if container has a width of 1000px we get 5 columns, but if it
+    has width of 600px we get 3 columns
+  - grid-template-column: repeat(atuo-fill, 100px); // if container has 600px width it still creates 6 columns,
+    even if only 2 are filled
+  - auto-fit is identical as auto-fill, except for 1 difference: tracs without content are collapsed (width: 0)
+
+  - useful for responsive design:
+  - grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); // shifts lines to next row if there is no space;
+    each column will take minimum 100px; so if we have 20 columns and parent container has the width of 1000px, this
+    automatically creates 2 rows, and adds additional rows as width of parent container shrinks;
+    - created rows are implicit rows, so their hight is min-content, change this by adding:
+      grid-auto-rows: 150px; // specifies height of implicit rows
+*/
