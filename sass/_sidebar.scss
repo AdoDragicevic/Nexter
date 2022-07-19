@@ -1,0 +1,7 @@
+.sidebar {
+  grid-row: 1 / -1; // start to end
+  grid-column: sidebar-start / sidebar-end; // named columns (in _base.scss)
+  
+  background-color: $color-primary;
+  
+}

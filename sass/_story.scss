@@ -1,0 +1,16 @@
+// this is fine, even if block 'story' is not used in HTML; if it has semantic meaning, it's fine to just use
+// block__elements directly
+.story {
+  
+  &__pictures {
+    grid-column: full-start / col-end 4;
+
+    background-color: $color-primary;
+  }
+
+  &__content {
+    grid-column: col-end 5 / full-end;
+
+    background-color: $color-grey-light-1;
+  }
+}

@@ -13,3 +13,50 @@ $color-grey-dark-2: #6D5D4B;
 // FONT VARIABLES
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 1rem = 10px; 10px/16px=62.5%
+}
+
+body {
+  font-family: $font-primary;
+  color: $color-grey-dark-2;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.container {
+  display: grid;
+  // auto is the same as min-content, the size will addopt to content
+  // you can use vw to set the height of row! Then it shrinks as vw decreases
+  grid-template-rows: 80vh min-content 40vw repeat(3, auto);
+  
+  // here we want columns of fixed width, so we divide 1140px (max-width) with 8; 1140/8 = cca. 140
+  // we use minmax function to say max-width=140px, width can decrease, but never below min-content
+  // 8rem is for the sidebar
+  // we want the 8 columns (main columns) to be in the middle, and the sidebar (8rem) completelly to the left,
+  // so we add 1fr column between sidebar and 8 main columns and 1fr after end of 8 main columns
+  // if there was no sidebar, we could center the main 8 columns with margin:auto or justify-content,
+  // however this is better because now we can have wider sections that even take up the "empty cells" - so we
+  // can create full width sections!
+  grid-template-columns: [sidebar-start] 
+                         8rem 
+                         [sidebar-end full-start] 
+                         minmax(6rem, 1fr) // if there is no splace 6rem will be the min-width; serves similar to padding
+                         [center-start]
+                         repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) // creates col-start 1, col-start 2, etc.
+                         [center-end] 
+                         minmax(6rem, 1fr) 
+                         [full-end];
+
+  // usually naming columns is more important than rows (rows might all be min-content), so rows are not always named
+}

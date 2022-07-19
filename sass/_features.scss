@@ -1,0 +1,59 @@
+.features {
+  
+  // location of this item
+  grid-column: center-start / center-end; //grid-row: 2 / 3;
+  
+  // this item is also a grid container
+  display: grid;
+  
+  // it has its own gap
+  gap: 6rem;
+  
+  // instead of this:
+  // grid-template-columns: repeat(3, 1fr);
+  // we use auto-fit & minmax to achieve responsive design (elements are pushed to next row if needed)
+  // autofit creates as many tracks that can fit based on the width we defined
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); 
+  
+  // we don't have to create rows, e.g.:
+  // grid-template-rows: auto auto;
+  // it will be created automatically (implicit grid rows)
+
+  // this will affect the positioning of content inside columns, not the row height! Therefore, if there
+  // are items below, the iems from the below row will not shift up if one item above is of smaller height
+  align-items: start;
+
+
+  margin: 15rem 0;
+}
+
+// feature is a reusable component that is placed in features grid component
+.feature {
+
+  // feature (card) is a grid item, and also a grid container!
+  display: grid;
+
+  // first column holds the icon. Icons width is 4.5rem. Instead of setting 4.5rem for first column we can use
+  // auto or min-content, because it will resize if we resize the icon
+  grid-template-columns: min-content 1fr;
+
+  // gap will provide the padding
+  row-gap: 1.5rem;
+  column-gap: 2.5rem;
+
+  // we dont define the rows, they will be auto implicit rows
+
+  &__icon {
+    fill: $color-primary;
+    width: 4.5rem;
+    height: 4.5rem;
+    transform: translateY(-1rem);
+
+    // grid-row: 1 / -1; // -1 means the end of the EXPLICIT grid; it ignores implicit grid, so here it won't work
+    grid-row: 1 / span 2;
+  }
+
+  &__text {
+    font-size: 1.7rem;
+  }
+}
