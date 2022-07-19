@@ -1,6 +1,5 @@
 @import "base";
 @import "typography";
-
 @import "sidebar";
 @import "header";
 @import "realtors";
@@ -116,6 +115,8 @@ CSS GRID
   - e.g. grid-template-columns: max-content 1fr;
   max-content // wide as content; without line breaks!
   min-content // wide as content; with line breaks!
+
+  - auto is the same as min-content, the size will addopt to content
 
 
   MINMAX
