@@ -2,33 +2,53 @@
   
   // location of this item
   grid-column: center-start / center-end; //grid-row: 2 / 3;
-  
-  // this item is also a grid container
-  display: grid;
-  
-  // it has its own gap
-  gap: 6rem;
-  
-  // instead of this:
-  // grid-template-columns: repeat(3, 1fr);
-  // we use auto-fit & minmax to achieve responsive design (elements are pushed to next row if needed)
-  // autofit creates as many tracks that can fit based on the width we defined
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); 
-  
-  // we don't have to create rows, e.g.:
-  // grid-template-rows: auto auto;
-  // it will be created automatically (implicit grid rows)
-
-  // this will affect the positioning of content inside columns, not the row height! Therefore, if there
-  // are items below, the iems from the below row will not shift up if one item above is of smaller height
-  align-items: start;
-
 
   margin: 15rem 0;
+
+  // Progressive enhancement example
+  // Progressive enhancement leads to code duplication, mostly it's avoided, e.g.:
+  // a) if your users use IE, use floats
+  // b) otherwise use flexbox or grid
+  // c) add @supports for some advanced properties (e.g. clip-path)
+  @supports (display: grid) {
+  
+    // this item is also a grid container
+    display: grid;
+    
+    // it has its own gap
+    gap: 6rem;
+    
+    // instead of this:
+    // grid-template-columns: repeat(3, 1fr);
+    // we use auto-fit & minmax to achieve responsive design (elements are pushed to next row if needed)
+    // autofit creates as many tracks that can fit based on the width we defined
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); 
+    
+    // we don't have to create rows, e.g.:
+    // grid-template-rows: auto auto;
+    // it will be created automatically (implicit grid rows)
+
+    // this will affect the positioning of content inside columns, not the row height! Therefore, if there
+    // are items below, the iems from the below row will not shift up if one item above is of smaller height
+    align-items: start;
+
+  }
+  
 }
 
 // feature is a reusable component that is placed in features grid component
 .feature {
+
+  float: left;
+  width: 33.333333%;
+  margin-bottom: 6rem;
+
+  @supports(display: grid) {
+    // floats is ignored automatically if display:grid is supported & used
+    // we do reset the below 2 properties:
+    width: auto;
+    margin-bottom: 0;
+  }
 
   // feature (card) is a grid item, and also a grid container!
   display: grid;

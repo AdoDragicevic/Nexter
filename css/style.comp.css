@@ -1,0 +1,725 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 50%; } }
+
+body {
+  font-family: "Nunito", sans-serif;
+  color: #6D5D4B;
+  font-weight: 300;
+  line-height: 1.6; }
+
+.container {
+  display: grid;
+  grid-template-rows: 80vh min-content 40vw repeat(3, auto);
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
+  @media only screen and (max-width: 62.5em) {
+    .container {
+      grid-template-rows: 6rem 80vh min-content 40vw repeat(3, auto);
+      grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; } }
+  @media only screen and (max-width: 50em) {
+    .container {
+      grid-template-rows: 6rem calc(100vh - 6rem); } }
+
+.heading-1, .heading-2, .heading-3, .heading-4 {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400; }
+
+.heading-1 {
+  font-size: 4.5rem;
+  color: #f9f7f6;
+  line-height: 1; }
+
+.heading-2 {
+  font-size: 4rem;
+  font-style: italic;
+  line-height: 1; }
+  .heading-2--light {
+    color: #f9f7f6; }
+  .heading-2--dark {
+    color: #54483A; }
+
+.heading-3 {
+  font-size: 1.6rem;
+  color: #c69963;
+  text-transform: uppercase; }
+
+.heading-4 {
+  font-size: 1.9rem; }
+  .heading-4--light {
+    color: #f9f7f6; }
+  .heading-4--dark {
+    color: #54483A; }
+
+.btn {
+  background-color: #c69963;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 1.8rem 3rem;
+  cursor: pointer;
+  transition: all .2s; }
+  .btn:hover {
+    background-color: #B28451; }
+
+.sidebar {
+  grid-row: 1 / -1;
+  grid-column: sidebar-start / sidebar-end;
+  display: flex;
+  justify-content: center;
+  background-color: #c69963; }
+  @media only screen and (max-width: 62.5em) {
+    .sidebar {
+      grid-row: 1 / 2;
+      grid-column: 1 / -1;
+      justify-content: flex-end;
+      align-items: center; } }
+
+.nav-btn {
+  border: none;
+  border-radius: 0;
+  background-color: #fff;
+  height: 3px;
+  width: 4.5rem;
+  margin-top: 4rem;
+  backface-visibility: hidden; }
+  @media only screen and (max-width: 62.5em) {
+    .nav-btn {
+      margin-top: 0;
+      margin-right: 3rem; } }
+  .nav-btn::before, .nav-btn::after {
+    content: "";
+    display: block;
+    background-color: #fff;
+    height: 3px;
+    width: 4.5rem; }
+  .nav-btn::before {
+    transform: translateY(-1.3rem); }
+  .nav-btn::after {
+    transform: translateY(1.1rem); }
+    @media only screen and (max-width: 62.5em) {
+      .nav-btn::after {
+        transform: translateY(1rem); } }
+
+.header {
+  grid-column: full-start / col-end 6;
+  display: grid;
+  grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
+  row-gap: 1.5rem;
+  justify-content: center;
+  grid-template-columns: minmax(min-content, max-content);
+  background-image: linear-gradient(rgba(16, 29, 44, 0.93), rgba(16, 29, 44, 0.93)), url(../img/hero.jpeg);
+  background-size: cover;
+  background-position: center;
+  padding: 8rem;
+  padding-top: 4rem; }
+  @media only screen and (max-width: 50em) {
+    .header {
+      grid-column: 1 / -1; } }
+  @media only screen and (max-width: 37.5em) {
+    .header {
+      padding: 5rem; } }
+  .header__logo {
+    height: 3rem;
+    justify-self: center; }
+  .header__btn {
+    align-self: start;
+    justify-self: start; }
+  .header__seenon-txt {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    column-gap: 1.5rem;
+    align-items: center;
+    font-size: 1.6rem;
+    columns: #aaa; }
+    .header__seenon-txt::before, .header__seenon-txt::after {
+      content: "";
+      display: block;
+      height: 1px;
+      background-color: currentColor; }
+  .header__seenon-logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 3rem;
+    justify-items: center;
+    align-items: center; }
+    .header__seenon-logos img {
+      max-height: 2.5rem;
+      max-width: 100%;
+      filter: brightness(70%); }
+
+.realtors {
+  grid-column: col-start 7 / full-end;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  row-gap: 2rem;
+  justify-items: center;
+  background-color: #101d2c;
+  padding: 3rem; }
+  @media only screen and (max-width: 50em) {
+    .realtors {
+      grid-column: 1 / -1; } }
+  .realtors__list {
+    display: grid;
+    row-gap: 5vh;
+    column-gap: 2rem;
+    grid-template-columns: min-content max-content;
+    align-items: center; }
+    @media only screen and (max-width: 50em) {
+      .realtors__list {
+        grid-template-columns: repeat(3, min-content max-content); } }
+    @media only screen and (max-width: 37.5em) {
+      .realtors__list {
+        grid-template-columns: min-content max-content; } }
+  .realtors__img {
+    width: 7rem;
+    border-radius: 50%;
+    display: block; }
+  .realtors__sold {
+    text-transform: uppercase;
+    color: #aaa;
+    margin-top: -3px; }
+
+.features {
+  grid-column: center-start / center-end;
+  margin: 15rem 0; }
+  @supports (display: grid) {
+    .features {
+      display: grid;
+      gap: 6rem;
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+      align-items: start; } }
+
+.feature {
+  float: left;
+  width: 33.333333%;
+  margin-bottom: 6rem;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  row-gap: 1.5rem;
+  column-gap: 2.5rem; }
+  @supports (display: grid) {
+    .feature {
+      width: auto;
+      margin-bottom: 0; } }
+  .feature__icon {
+    fill: #c69963;
+    width: 4.5rem;
+    height: 4.5rem;
+    transform: translateY(-1rem);
+    grid-row: 1 / span 2; }
+  .feature__text {
+    font-size: 1.7rem; }
+
+.story__pictures {
+  grid-column: full-start / col-end 4;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  background-image: linear-gradient(rgba(198, 153, 99, 0.5), rgba(198, 153, 99, 0.5)), url(../img/back.jpg);
+  background-size: cover; }
+  @media only screen and (max-width: 50em) {
+    .story__pictures {
+      padding: 6rem;
+      grid-column: 1 / -1; } }
+
+.story__img--1 {
+  width: 100%;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.1);
+  grid-area: 2 / 2 / -2 / -2; }
+  @media only screen and (max-width: 50em) {
+    .story__img--1 {
+      grid-area: 1 / 1 / -1 / 5; } }
+
+.story__img--2 {
+  grid-area: 4 / 4 / 6 / 7;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+  width: 115%;
+  z-index: 2; }
+  @media only screen and (max-width: 50em) {
+    .story__img--2 {
+      width: 100%;
+      grid-area: 1 / 4 / -1 / 7; } }
+
+.story__content {
+  grid-column: col-start 5 / full-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  /*
+      we use flexbox for centering, because we are centering a one dimensional layout,
+      to do the same with grid:
+
+      display: grid;
+      align-content: center;
+      justify-items: start;
+    */
+  background-color: #f9f7f6;
+  padding: 6rem 8vw; }
+  @media only screen and (max-width: 50em) {
+    .story__content {
+      grid-row: 5 / 6;
+      grid-column: 1 / -1; } }
+
+.story__text {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-bottom: 4rem; }
+
+.homes {
+  grid-column: center-start / center-end;
+  display: grid;
+  gap: 7rem;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  margin: 15rem 0; }
+
+.home {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 3.5rem;
+  background-color: #f9f7f6; }
+  .home__img {
+    width: 100%;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    z-index: 1; }
+  .home__like {
+    grid-area: 1/ 2 / 2 / 3;
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: #c69963;
+    z-index: 2;
+    justify-self: end;
+    margin: 1rem; }
+  .home__name {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    width: 80%;
+    justify-self: center;
+    align-self: end;
+    z-index: 2;
+    transform: translateY(50%);
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 1.25rem;
+    background-color: #101d2c;
+    color: #fff;
+    font-weight: 400; }
+  .home__btn {
+    grid-column: 1 / -1; }
+  .home__location, .home__rooms {
+    margin-top: 2.5rem; }
+  .home__location, .home__rooms, .home__area, .home__price {
+    font-size: 1.5rem;
+    margin-left: 2rem;
+    display: flex;
+    align-items: center; }
+    .home__location svg, .home__rooms svg, .home__area svg, .home__price svg {
+      width: 2rem;
+      height: 2rem;
+      fill: #c69963;
+      margin-right: 1rem; }
+
+.gallery {
+  grid-column: full-start / full-end;
+  display: grid;
+  grid-template-rows: repeat(7, 5vw);
+  grid-template-columns: repeat(8, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background-color: #f9f7f6; }
+  .gallery__item--1 {
+    grid-area: 1 / 1 / 3 / 3; }
+  .gallery__item--2 {
+    grid-area: 1 / 3 / 4 / 6; }
+  .gallery__item--3 {
+    grid-row: 1 / 3;
+    grid-column: 6 / 7; }
+  .gallery__item--4 {
+    grid-row: 1 / 3;
+    grid-column: 7 / -1; }
+  .gallery__item--5 {
+    grid-row: 3 / 6;
+    grid-column: 1 / 3; }
+  .gallery__item--6 {
+    grid-row: 4 / 6;
+    grid-column: 3 / 5; }
+  .gallery__item--7 {
+    grid-row: 4 / 5;
+    grid-column: 5 / 6; }
+  .gallery__item--8 {
+    grid-row: 3 / 5;
+    grid-column: 6 / 8; }
+  .gallery__item--9 {
+    grid-row: 3 / 6;
+    grid-column: 8 / -1; }
+  .gallery__item--10 {
+    grid-row: 6 / -1;
+    grid-column: 1 / 2; }
+  .gallery__item--11 {
+    grid-row: 6 / -1;
+    grid-column: 2 / 4; }
+  .gallery__item--12 {
+    grid-row: 6 / -1;
+    grid-column: 4 / 5; }
+  .gallery__item--13 {
+    grid-row: 5 / -1;
+    grid-column: 5 / 8; }
+  .gallery__item--14 {
+    grid-row: 6 / -1;
+    grid-column: 8 / -1; }
+  .gallery__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; }
+
+.footer {
+  grid-column: full-start / full-end;
+  background-color: #101d2c;
+  padding: 8rem; }
+
+.nav {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  align-items: center;
+  list-style: none; }
+  .nav__link:link, .nav__link:visited {
+    font-size: 1.4rem;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Josefin Sans", sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1.5rem;
+    display: block;
+    transition: all .2s; }
+    .nav__link:link:hover, .nav__link:link:active, .nav__link:visited:hover, .nav__link:visited:active {
+      background-color: rgba(255, 255, 255, 0.05);
+      transform: translateY(-3px); }
+
+.copyright {
+  font-size: 1.4rem;
+  color: #aaa;
+  margin-top: 6rem;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center; }
+
+.mb-sm {
+  margin-bottom: 2rem; }
+
+.mb-md {
+  margin-bottom: 3rem; }
+
+.mb-lg {
+  margin-bottom: 4rem; }
+
+.mb-hg {
+  margin-bottom: 8rem; }
+
+.ge-container {
+  background-color: #eee;
+  max-width: 1000px;
+  width: 100%;
+  margin: 30px auto;
+  display: grid;
+  grid-template-rows: 150px 150px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px; }
+
+.ge-item {
+  padding: 20px;
+  font-size: 30px;
+  font-family: sans-serif;
+  color: white; }
+  .ge-item--1 {
+    background-color: yellowgreen;
+    z-index: 2;
+    grid-area: 2 / 2 / 3 / 3;
+    /* Equivalent of grid-area:
+        grid-row: 2 / 3; // start / end (row-line)
+      */
+    /*
+      Equivalent of grid-row:
+        grid-row-start: 2; // define row line
+        grid-row-end: 3; // define row line
+      */
+    /* Equivalent of grid-area:
+        grid-column: 2 / 3;
+      */
+    /*
+      Equivalent of grid-column:
+        grid-column-start: 2; // define column line
+        grid-column-end: 3; // define column line
+      */ }
+  .ge-item--2 {
+    background-color: orangered; }
+  .ge-item--3 {
+    background-color: purple;
+    grid-area: 2 / 1 / 3 / 3;
+    /* Equivalent for grid-area:
+      grid-row: 2 / 3;
+      grid-column: 1 / 3;
+      */ }
+  .ge-item--4 {
+    background-color: salmon; }
+  .ge-item--5 {
+    background-color: darkblue;
+    /* To position grid item from start to end use:
+        grid-row: 1 / -1; // -1 represents end
+      */
+    grid-row: 1 / span 2;
+    grid-column: 3 / 4; }
+  .ge-item--6 {
+    background-color: violet;
+    grid-area: 1 / 2 / 2 / 3; }
+
+.ge-grid {
+  display: grid;
+  grid-template-rows: repeat(9, 80px);
+  grid-template-columns: repeat(11, 1fr);
+  gap: 15px;
+  max-width: 800px;
+  width: 100%;
+  margin: 30px auto;
+  background-color: #eee; }
+  .ge-grid__item {
+    background-color: orangered; }
+    .ge-grid__item--1 {
+      grid-row: 1 / 2;
+      grid-column: 1 / -1; }
+    .ge-grid__item--2 {
+      grid-row: 2 / 4;
+      grid-column: 1 / 4; }
+    .ge-grid__item--3 {
+      grid-row: 2 / span 2;
+      grid-column: 4 / span 3; }
+    .ge-grid__item--4 {
+      grid-area: 2 / 7 / 4 / 10; }
+    .ge-grid__item--5 {
+      grid-area: 2 / 10 / -2 / -1; }
+    .ge-grid__item--6 {
+      grid-row: 4 / 9;
+      grid-column: 1 / 10; }
+    .ge-grid__item--7 {
+      grid-row: 9 / -1;
+      grid-column: 1 / -1; }
+
+.ge-challenge {
+  max-width: 1000px;
+  width: 100%;
+  margin: 30px auto;
+  background-color: #eee;
+  display: grid;
+  gap: 30px;
+  grid-template-rows: 100px 200px 400px 100px;
+  grid-template-columns: repeat(3, 1fr) 200px; }
+  .ge-challenge > * {
+    background-color: orange;
+    color: #eee;
+    font-family: sans-serif;
+    padding: 10px; }
+
+.ge-header {
+  grid-column: 1 / -1; }
+
+.ge-sidebar {
+  grid-column: -2 / -1;
+  grid-row: 2 / span 2; }
+
+.ge-main-content {
+  grid-column: 1 / span 3; }
+
+.ge-footer {
+  grid-column: 1 / -1; }
+
+.ge-positioning {
+  background-color: #eee;
+  margin: 30px auto;
+  width: 100%;
+  max-width: 1000px;
+  display: grid;
+  gap: 30px;
+  grid-template-rows: [header-start] 100px [header-end box-start] 200px [box-end main-start] 400px [main-end footer-start] 100px [footer-end];
+  grid-template-columns: repeat(3, [col-start] 1fr [col-end]) 200px [grid-end]; }
+  .ge-positioning > * {
+    background-color: orangered; }
+  .ge-positioning__header {
+    grid-column: col-start 1 / grid-end; }
+  .ge-positioning__main-content {
+    grid-column: col-start 1 / col-end 3; }
+  .ge-positioning__sidebar {
+    grid-row: header-end / footer-start;
+    grid-column: col-end 3 / grid-end; }
+  .ge-positioning__footer {
+    grid-column: col-start 1 / grid-end; }
+
+.ge-pos {
+  background-color: #eee;
+  width: 100%;
+  max-width: 1000px;
+  margin: 30px auto;
+  display: grid;
+  gap: 30px;
+  grid-template-rows: 100px 200px 400px 100px;
+  grid-template-columns: repeat(3, 1fr) 200px;
+  grid-template-areas: "head head head head" "box box box side" "main main main side" "foot foot foot foot"; }
+  .ge-pos > * {
+    background-color: orangered; }
+  .ge-pos__header {
+    grid-area: head; }
+  .ge-pos__main-content {
+    grid-area: main; }
+  .ge-pos__sidebar {
+    grid-area: side; }
+  .ge-pos__footer {
+    grid-area: foot; }
+
+/* 
+CSS GRID
+  - 2 dimensional layout
+  - ROW axis, COLUMN axis
+    - unline in flexbox, their dirrection can't be changed
+  - grid line is counted for rows & columns; num of row/column + 1
+  - gutter - space between rows and columns
+  - track - row or vertical line of columns
+  - grid area
+  - grid cell
+
+
+  CONTAINER
+
+  display: grid | grid-inline; // creates grid container
+  
+  grid-template-rows
+  grid-template-columns
+  grid-template-areas
+  grid-template
+
+  row-gap
+  column-gap
+  gap
+
+  justify-items
+  align-items
+  justify-content
+  align-content
+
+  // items that can't fit in container are placed in implicit rows/columns, by default or based on:
+  grd-auto-rows
+  grd-auto-columns
+  grid-auto-flow: row | columns; add 'dense' keyword to avoid empty places
+
+
+  Aligning grid items:
+    
+    justify-items // align items across ROW axis; equivalent to justify-content in flexbox; alligns content of container
+    align-items // alig items across COLUMN axis; identical as in flexbox; this will align the content of the container
+
+  
+  Allign grid tracks:
+
+    justify-content // indentical to flex-box
+    align-content // identical to flex-box; will allign the container rows
+
+
+  - justify (justify-items, justify-content) always refers to the HORIZONTAL dirrection
+  - align (align-items, align-content) always referes to VERTICAL dirrectaion
+
+
+
+  ITEMS
+
+  grid-row-start
+  grid-row-end
+  grid-row
+
+  grid-colum-start
+  grid-colum-end
+  grid-colum
+
+  grid-areas
+
+
+  Aligning grid items:
+  
+    justify-self
+    align-self
+
+  order
+  - three ways to order (see them in grid-exercise.html / _grid-exercise.scss)
+
+
+
+  - it's possible to have multiple grid items in same cell (if we place them there); use z-index to chose 
+    which is on top; often used to have overlying imgs and create great effects!
+
+
+  Implicit vs Explicit grids
+  - if it's needed a implicit row or column is created for grid items that dont fit into the defined grid;
+    the defined grid is called explicit grid, and this is the implicit grid; el in implicit rows have min height
+    required for content of items
+  - style implicit grid with:
+    grid-auto-rows: 80px; // each added row has height of 80px
+    grid-auto-columns: .5fr;
+    - this is great with AJAX, when we don't know how many items we will get back
+  - grid items that don't fit into our grid are automatically added to next row, because of the next property:
+    grid-auto-flow: row | column;
+
+
+  
+  FR
+  - fractional unit filles up the entire available space, but is never smaller than the content of the item
+  - e.g. 1fr instead of 100%, or 1fr 1fr instead of 50% 50%
+
+
+
+  MIN-CONTENT VS. MAX-CONTENT
+  - properties that can be used in grid, e.g. instead of units like 1fr
+  - e.g. grid-template-columns: max-content 1fr;
+  max-content // wide as content; without line breaks!
+  min-content // wide as content; with line breaks!
+
+  - auto is the same as min-content, the size will addopt to content
+
+
+  MINMAX
+  - in css grid we can use the minmax function, e.g.:
+  grit-template-rows: repeat(2, minmax(150px, max-content)) // rows are wide as content, but with min-width of 150px
+  - wen we want the row (or column) to be at least Xpx/rem/em/%/fr high, but higher if contet would overflow
+  - wen we want the column (or row) to be at least Xpx/rem/em/%/fr width, but wider if contet would overflow
+
+
+  AUTO-FIT & AUTO-FILL
+  - great for responsive layouts
+  - grid-template-column: repeat(auto-fill, 200px); // if container has a width of 1000px we get 5 columns, but if it
+    has width of 600px we get 3 columns
+  - grid-template-column: repeat(atuo-fill, 100px); // if container has 600px width it still creates 6 columns,
+    even if only 2 are filled
+  - auto-fit is identical as auto-fill, except for 1 difference: tracs without content are collapsed (width: 0)
+
+  - useful for responsive design:
+  - grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); // shifts lines to next row if there is no space;
+    each column will take minimum 100px; so if we have 20 columns and parent container has the width of 1000px, this
+    automatically creates 2 rows, and adds additional rows as width of parent container shrinks;
+    - created rows are implicit rows, so their hight is min-content, change this by adding:
+      grid-auto-rows: 150px; // specifies height of implicit rows
+*/
