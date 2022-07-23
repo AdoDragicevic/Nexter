@@ -13,6 +13,12 @@
 
     background-image: linear-gradient(rgba($color-primary, .5), rgba($color-primary, .5)), 
                       url(../img/back.jpg);
+    background-size: cover;
+
+    @media only screen and (max-width: $bp-medium) {
+      padding: 6rem;
+      grid-column: 1 / -1;
+    }
     
   }
 
@@ -24,6 +30,10 @@
     // to keep it, so an img will not automatically fully stretch to the grid-area we specify for it; to place
     // the img to the center of the grid-area defined for it, add align-items: center to grid (&__pictures)
     grid-area: 2 / 2 / -2 / -2;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-area: 1 / 1 / -1 / 5;
+    }
   }
 
   &__img--2 {
@@ -33,6 +43,11 @@
     // instead of transform, we just increased img width
     width: 115%;
     z-index: 2;
+
+    @media only screen and (max-width: $bp-medium) {
+      width: 100%;
+      grid-area: 1 / 4 / -1 / 7;
+    }
   }
 
   &__content {
@@ -56,6 +71,13 @@
 
     // defining padding with vw automatically adds responsive design
     padding: 6rem 8vw;
+
+    @media only screen and (max-width: $bp-medium) {
+      // we place &__content above &__pictures by explicitly setting its row
+      grid-row: 5 / 6;
+      
+      grid-column: 1 / -1;
+    }
   }
 
   &__text {
