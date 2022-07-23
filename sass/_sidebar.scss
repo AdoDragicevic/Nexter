@@ -1,7 +1,37 @@
 .sidebar {
   grid-row: 1 / -1; // start to end
   grid-column: sidebar-start / sidebar-end; // named columns (in _base.scss)
+
+  display: flex;
+  justify-content: center;
   
-  background-color: $color-primary;
-  
+  background-color: $color-primary; 
+}
+
+.nav-btn {
+  border: none;
+  border-radius: 0;
+  background-color: #fff;
+  height: 3px;
+  width: 4.5rem;
+  margin-top: 4rem;
+  backface-visibility: hidden;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    background-color: #fff;
+    height: 3px;
+    width: 4.5rem;
+    
+  }
+
+  &::before {
+    transform: translateY(-1.3rem);
+  }
+
+  &::after {
+    transform: translateY(1.1rem);
+  }
 }

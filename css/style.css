@@ -62,7 +62,28 @@ body {
 .sidebar {
   grid-row: 1 / -1;
   grid-column: sidebar-start / sidebar-end;
+  display: flex;
+  justify-content: center;
   background-color: #c69963; }
+
+.nav-btn {
+  border: none;
+  border-radius: 0;
+  background-color: #fff;
+  height: 3px;
+  width: 4.5rem;
+  margin-top: 4rem;
+  backface-visibility: hidden; }
+  .nav-btn::before, .nav-btn::after {
+    content: "";
+    display: block;
+    background-color: #fff;
+    height: 3px;
+    width: 4.5rem; }
+  .nav-btn::before {
+    transform: translateY(-1.3rem); }
+  .nav-btn::after {
+    transform: translateY(1.1rem); }
 
 .header {
   grid-column: full-start / col-end 6;
