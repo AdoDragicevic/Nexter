@@ -8,4 +8,4 @@ Rebuilding all the course projects and adding comments enabled me to remind myse
 A lot of the things people use JS for can be built with pure CSS.
 
 ### Visit the deployed version here:
-https://adodragicevic.github.io/nexter/
+https://adodragicevic.github.io/Nexter/
